@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background-color: red;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 440px;
+        grid-gap: 2px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
+      .container-bg {
+        background-image: none;
+      }
+
+      .container .card {
+        position: relative;
+        background: rgb(0, 0, 0, 0.3);
+        transition: background 0.5s ease;
+
+        transition: 0.5s;
+        overflow: hidden;
+        height: 100vh;
+      }
+
+      .container .card:hover {
+        background: rgb(0, 0, 0, 0.8);
+      }
+
+      .container .card img {
+        width: 334px;
+        height: 100vh;
+      }
+
+      .container .card .img_box {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      .container .card:hover .img_box {
+        opacity: 1;
+      }
+
+      .container .card .img_box img {
+        width: 100%;
+      }
+
+      .container .card .content {
+        position: absolute;
+        bottom: -100%;
+        left: 0;
+        text-align: center;
+        padding: 20px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        width: 100%;
+        height: 60%;
+        box-sizing: border-box;
+        transition: 0.5s;
+      }
+
+      .container .card:hover .content {
+        bottom: 0;
+      }
+
+      /* .container .card:nth-child(2) .content {
+        background: linear-gradient(0deg, #000000, transparent);
+      }
+
+      .container .card:nth-child(3) .content {
+        background: linear-gradient(0deg, #000000, transparent);
+      }
+      .container .card:nth-child(4) .content {
+        background: linear-gradient(0deg, #000000, transparent);
+      }
+      .container .card:nth-child(5) .content {
+        background: linear-gradient(0deg, #000000, transparent);
+      } */
+      .container .card .content h2 {
+        color: #fff;
+        margin: 0 0 10px;
+        padding: 0;
+        font-size: 20px;
+      }
+
+      .container .card .content span {
+        font-size: 16px;
+        color: #ffeb3d;
+      }
+
+      .container .card .content p {
+        font-size: 16px;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        bottom: 0;
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        font-weight: regular;
+      }
+
+      .container .card .content ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .container .card .content ul li a {
+        color: #fff;
+        font-size: 18px;
+        padding: 0 10px;
+      }
+
+      .container .card .item-text {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #fff;
+        font-size: 24px;
+        font-family: "Poppins", sans-serif;
+        font-weight: medium;
+        transition: 0.5s;
+
+        text-align: center;
+        width: 70%;
+      }
+
+      .container .card:hover .item-text {
+        bottom: 60%;
+        left: 50%;
+      }
+
+      .title {
+        position: absolute;
+        color: rgb(255, 255, 255, 0.5);
+        z-index: 1000;
+        left: 42%;
+        font-family: "Poppins", sans-serif;
+        font-weight: bold;
+        font-size: 35px;
+      }
+
+      /* CSS */
+      .button-5 {
+        align-items: center;
+        background-clip: padding-box;
+        background-color: #fa6400;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+        box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: inline-flex;
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        justify-content: center;
+        line-height: 1.25;
+        margin-top: 50px;
+        min-height: 40px;
+        padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+        position: relative;
+        text-decoration: none;
+        transition: all 250ms;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        vertical-align: baseline;
+        width: auto;
+      }
+
+      .button-5:hover,
+      .button-5:focus {
+        background-color: #fb8332;
+        box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+      }
+
+      .button-5:hover {
+        transform: translateY(-1px);
+      }
+
+      .button-5:active {
+        background-color: #c85000;
+        box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+        transform: translateY(0);
+      }
+
+      @media only screen and (max-width: 40em) {
+        .container {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .container .card:hover .item-text {
+          bottom: 65%;
+          left: 50%;
+        }
+        .container .card .item-text {
+          font-size: 1rem;
+
+          width: 80%;
+        }
+        .container .card:hover .content {
+          bottom: 15%;
+        }
+        .container .card .content p {
+          font-size: 14px;
+        }
+        .button-5 {
+          bottom: 40%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container container-bg">
+      <div class="card">
+        <div
+          class="img_box"
+          style="
+            background-image: url('https://static.wixstatic.com/media/c2b3db_f8e703abf7da4e7a9f56f2f28ec9eb53~mv2.png');
+          "
+        ></div>
+        <p class="item-text">IT Service<br />Management Services</p>
+
+        <div class="content">
+          <p>
+            A framework rooted in ITIL best practices, driving excellence in
+            service delivery.
+          </p>
+
+          <button class="button-5" role="button" onclick="ITSM()">
+            Learn more
+          </button>
+        </div>
+        <!--End content-->
+      </div>
+      <!--End Card1-->
+      <div class="card">
+        <div
+          class="img_box"
+          style="
+            background-image: url('https://static.wixstatic.com/media/c2b3db_1000b89751454c8a8abbcae8e3f6bea6~mv2.png');
+          "
+        ></div>
+        <p class="item-text">IT Asset<br />Management System</p>
+
+        <div class="content">
+          <p>
+            Empower key personnel for optimal efficiency with strategic software
+            and hardware asset management management.
+          </p>
+          <button class="button-5" role="button" onclick="ITAM()">
+            Learn more
+          </button>
+        </div>
+        <!--End content-->
+      </div>
+      <!--End Card1-->
+      <div class="card">
+        <div
+          class="img_box"
+          style="
+            background-image: url('https://static.wixstatic.com/media/c2b3db_94cc2a9ac1304f15a26d2e63ab1b123c~mv2.png');
+          "
+        ></div>
+        <p class="item-text">Security Services</p>
+
+        <div class="content">
+          <p>
+            Fortify organizations against advanced threats with a formidable
+            Zero Trust approach, safeguarding against widespread attacks
+          </p>
+          <button class="button-5" role="button" onclick="SecurityServices()">
+            Learn more
+          </button>
+        </div>
+        <!--End content-->
+      </div>
+      <!--End Card1-->
+      <div class="card">
+        <div
+          class="img_box"
+          style="
+            background-image: url('https://static.wixstatic.com/media/c2b3db_5ba71ff1a2d14488bbedf8413c63a2aa~mv2.png');
+          "
+        ></div>
+        <p class="item-text">Education and<br />Training Services</p>
+
+        <div class="content">
+          <p>
+            Fuel success with strategic technology planning, implementation, and
+            optimization, surpassing goals and maximizing ROI through our
+            Professional Services and Best Practices.
+          </p>
+          <!-- <button onclick="buttonClick()">Click me</button> -->
+          <button class="button-5" role="button" onclick="ETS()">
+            Learn more
+          </button>
+        </div>
+        <!--End content-->
+      </div>
+      <!--End Card1-->
+    </div>
+    <!--End Container-->
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var container = document.querySelector(".container")
+      var cards = document.querySelectorAll(".card")
+      var title = document.querySelector(".title")
+
+      var lastHoveredCard = cards[0]
+
+      // Set initial background image to the background image of the first card
+      container.style.backgroundImage =
+        lastHoveredCard.querySelector(".img_box").style.backgroundImage
+
+      cards.forEach(function (card) {
+        card.addEventListener("mouseover", function () {
+          // Save the current background image of the card
+          card.dataset.prevBackground =
+            card.querySelector(".img_box").style.backgroundImage
+
+          // Remove background image from the card
+          card.querySelector(".img_box").style.backgroundImage = "none"
+
+          // Set container background image
+          container.style.backgroundImage = card.dataset.prevBackground
+
+          // Update the last hovered card
+          lastHoveredCard = card
+
+          if (window.innerWidth <= 480) {
+            title.style.opacity = 0 // Hide the title when card is hovered on mobile devices
+          } else if (window.innerWidth <= 768) {
+            // Adjust styles for tablets
+            title.style.opacity = 0
+          } else if (window.innerWidth <= 834) {
+            // Adjust styles for tablets
+            title.style.opacity = 0
+          } else {
+            // Styles for larger screens (e.g., desktop)
+          }
+        })
+
+        card.addEventListener("mouseout", function () {
+          if (lastHoveredCard !== null) {
+            // Restore background image to the last hovered card
+            lastHoveredCard.querySelector(".img_box").style.backgroundImage =
+              lastHoveredCard.dataset.prevBackground
+
+            // Set container background image to the last hovered card's background
+            container.style.backgroundImage =
+              lastHoveredCard.dataset.prevBackground
+          }
+          if (window.innerWidth <= 480) {
+            title.style.opacity = 1 // Hide the title when card is hovered on mobile devices
+          } else if (window.innerWidth <= 768) {
+            // Adjust styles for tablets
+            title.style.opacity = 1
+          } else if (window.innerWidth <= 834) {
+            // Adjust styles for Ipad
+            title.style.opacity = 1
+          } else {
+            // Styles for larger screens (e.g., desktop)
+          }
+        })
+      })
+    })
+    // function buttonClick() {
+    //   window.parent.postMessage("Button clicked", "*")
+    // }
+
+    function ITSM() {
+      window.parent.postMessage("ITSM", "*")
+    }
+
+    function ITAM() {
+      window.parent.postMessage("ITAM", "*")
+    }
+    function SecurityServices() {
+      window.parent.postMessage("SecurityServices", "*")
+    }
+    function ETS() {
+      window.parent.postMessage("ETS", "*")
+    }
+  </script>
+</html>
